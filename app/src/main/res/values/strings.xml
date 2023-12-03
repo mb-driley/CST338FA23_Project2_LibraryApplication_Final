@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CST338FA23_Project2_LibraryApplication_Final</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome!</string>
+    <string name="please_sign_in_to_continue">Please sign-in to continue</string>
 </resources>
