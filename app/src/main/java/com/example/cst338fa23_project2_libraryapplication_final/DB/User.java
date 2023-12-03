@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 import com.example.cst338fa23_project2_libraryapplication_final.DB.AppDatabase;
 
-@Entity(tableName = AppDatabase.USER_TABLE)
+@Entity(tableName = "User_Table")
 public class User {
     @PrimaryKey(autoGenerate = true)
     private int mUserID;

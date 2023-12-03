@@ -8,23 +8,16 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {User.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    public static final String DB_NAME = "User.db";
-    public static final String USER_TABLE = "user_table";
+    private static final String DB_NAME = "Users.db";
     private static volatile AppDatabase instance;
-    private static final Object LOCK = new Object();
     public abstract UserDAO UserDAO();
 
     public static AppDatabase getInstance(Context context) {
         if (instance == null) {
-            synchronized (LOCK) {
-                if (instance == null) {
-                    instance = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase.class, DB_NAME).build();
-                }
-            }
+            instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, DB_NAME)
+                    .fallbackToDestructiveMigration().build();
         }
 
         return instance;
     }
-    public UserDAO getUserDAO() {return UserDAO();}
 }

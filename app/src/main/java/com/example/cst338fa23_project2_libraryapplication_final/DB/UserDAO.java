@@ -20,12 +20,12 @@ public interface UserDAO {
     @Delete
     void delete(User user);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE)
+    @Query("SELECT * FROM " + "User_Table")
     List<User> getAllUsers();
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE mUserID = :userID")
+    @Query("SELECT * FROM " + "User_Table" + " WHERE mUserID = :userID")
     User getUserByID(int userID);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE mUsername = :username")
+    @Query("SELECT * FROM " + "User_Table" + " WHERE mUsername = :username")
     User getUserByUsername(String username);
 }
