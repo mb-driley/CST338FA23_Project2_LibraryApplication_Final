@@ -2,6 +2,7 @@ package com.example.cst338fa23_project2_libraryapplication_final;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -86,13 +87,15 @@ public class LoginActivity extends AppCompatActivity {
 
                     else {
                         if (mUser.isAdmin()) {
-                            Toast.makeText(LoginActivity.this,
-                                    "Correct Password & is Admin", Toast.LENGTH_SHORT).show();
+                            Intent intent = MainActivity.intentFactory(getApplicationContext(),
+                                    mUser.getUserID());
+                            startActivity(intent);
                         }
 
                         else {
-                            Toast.makeText(LoginActivity.this,
-                                    "Correct password, but not admin", Toast.LENGTH_SHORT).show();
+                            Intent intent = MainActivity.intentFactory(getApplicationContext(),
+                                    mUser.getUserID());
+                            startActivity(intent);
                         }
                     }
                 }
